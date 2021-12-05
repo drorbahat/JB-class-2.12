@@ -6,10 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajax class 1</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="main-container">
+        <h1>To Do List</h1>
+        <button class="main-button btn-grad" onclick="requestAllTodos()">get all todo lists</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>title</th>
+                    <th>userId</th>
+                    <th>completed</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
 
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

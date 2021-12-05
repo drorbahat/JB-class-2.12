@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #073b58 0%, #355e59 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    max-height: 100vh;
+    color: white
+}
+
+button {
+    margin: 1rem;
+    align-items: center;
+
+}
+
+table {
+    margin: auto;
+}
+
+
+table,
+th,
+td {
+    border: 1.5px solid rgba(255, 255, 255, 0.336);
+    border-collapse: collapse;
+}
+
+.main-container {
+    text-align: center;
+    align-items: center;
+}
+
+
+.btn-grad {
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%)
+}
+
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.233);
+    border-radius: 10px;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
