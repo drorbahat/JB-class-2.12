@@ -1,46 +1,46 @@
-const requestAllTodos = async () => {
-    await getTodosFromServer()
-        .then((todoList) => {
-            displayTodoListInTable(todoList)
-        })
-        .catch(() => {
-            alert("error")
-        })
+const requestAllusers = async () => {
+    displayUsersListInTable(await getUsersFromServer())
+
 }
 
-const getTodosFromServer = () => {
+const getUsersFromServer = () => {
     return new Promise((resolve, reject) => {
         const ajax = new XMLHttpRequest()
         ajax.onreadystatechange = () => {
             let state = ajax.readyState
             if (state === 4) {
                 if (ajax.status === 200) {
-                    const todoListFromJson = JSON.parse(ajax.responseText)
-                    resolve(todoListFromJson)
+                    const usersListFromJson = JSON.parse(ajax.responseText)
+                    resolve(usersListFromJson)
                 } else {
                     reject()
                 }
             }
         }
-        ajax.open("GET", "https://jsonplaceholder.typicode.com/todos")
+        ajax.open("GET", "https://jsonplaceholder.typicode.com/users")
         ajax.send()
     })
 
 }
 
-const displayTodoListInTable = (todoList) => {
-    const todoTableBody = document.getElementById("tbody")
+const displayUsersListInTable = (usersList) => {
+    const usersTableBody = document.getElementById("tbody")
     let tableRows = ''
-    for (const todoElement of todoList) {
-        if (todoElement.userId === 1) {
+    for (const userElement of usersList) {
+        if (userElement.id === 1) {
             tableRows += `
-            <tr>
-                <td>${todoElement.title}</td>
-                <td>${todoElement.userId}</td>
-                <td>${todoElement.completed}</td>
-            </tr>
+                <tr>
+                    <td>${userElement.name}</td>
+                    <td>${userElement.username}</td>
+                    <td>${userElement.email}</td>
+                    <td>${userElement.phone}</td>
+                    <td>${userElement.address.city}</td>
+                    <td>${userElement.address.street}</td>
+                    <td>${userElement.address.zipcode}</td>
+                    <td>${userElement.name}</td>
+                </tr>
             `
         }
-        todoTableBody.innerHTML = tableRows
+        usersTableBody.innerHTML = tableRows
     }
 }
