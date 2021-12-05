@@ -13,33 +13,36 @@
 <body>
     <div class="main-container">
         <h1>To Do List</h1>
-        <button class="main-button btn-grad" onclick="requestAllusers()">get all todo lists</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>name</th>
-                    <th>user name</th>
-                    <th>email</th>
-                    <th>phone num</th>
-                    <th>city</th>
-                    <th>street</th>
-                    <th>zip code</th>
-                    <th>company</th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <label for="userId">Select User ID</label>
+        <br>
+        <select name="usesId" id="userIdSelector">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <br>
+        <button class="main-button btn-grad" onclick="requestAllusers()">Get Info</button>
+        <div class="card level-3">
+            <div class="info-container" id="info-container">
+                <p>name: john</p>
+                <p>user name</p>
+                <p>email</p>
+                <p>phone num</p>
+                <p>city</p>
+                <p>street</p>
+                <p>zip code</p>
+                <p>company</p>
+            </div>
+        </div>
+
+
     </div>
 </body>
 

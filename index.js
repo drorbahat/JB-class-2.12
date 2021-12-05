@@ -1,9 +1,14 @@
 const requestAllusers = async () => {
-    displayUsersListInTable(await getUsersFromServer())
+    const userIdSelection = document.getElementById("userIdSelector").value
+    console.log(userIdSelection)
+    const address = "https://jsonplaceholder.typicode.com/users" + "/" + userIdSelection
+    console.log(address)
+
+    displayUsersListInTable(await getUsersFromServer(address))
 
 }
 
-const getUsersFromServer = () => {
+const getUsersFromServer = (address) => {
     return new Promise((resolve, reject) => {
         const ajax = new XMLHttpRequest()
         ajax.onreadystatechange = () => {
@@ -17,30 +22,25 @@ const getUsersFromServer = () => {
                 }
             }
         }
-        ajax.open("GET", "https://jsonplaceholder.typicode.com/users")
+        ajax.open("GET", address)
         ajax.send()
     })
 
 }
 
 const displayUsersListInTable = (usersList) => {
-    const usersTableBody = document.getElementById("tbody")
+    const infoContainer = document.getElementById("info-container")
     let tableRows = ''
-    for (const userElement of usersList) {
-        if (userElement.id === 1) {
-            tableRows += `
-                <tr>
-                    <td>${userElement.name}</td>
-                    <td>${userElement.username}</td>
-                    <td>${userElement.email}</td>
-                    <td>${userElement.phone}</td>
-                    <td>${userElement.address.city}</td>
-                    <td>${userElement.address.street}</td>
-                    <td>${userElement.address.zipcode}</td>
-                    <td>${userElement.name}</td>
-                </tr>
-            `
-        }
-        usersTableBody.innerHTML = tableRows
-    }
+    tableRows += `
+                    <p>username: ${usersList.username}</p>
+                    <p>name: ${usersList.name}</p>
+                    <p>phone: ${usersList.phone}</p>
+                    <p>email: ${usersList.email}</p>
+                    <p>city: ${usersList.address.city}</p>
+                    <p>street: ${usersList.address.street}</p>
+                    <p>zipcode: ${usersList.address.zipcode}</p>
+                    <p>company: ${usersList.company.name}</p>
+                `
+
+    infoContainer.innerHTML = tableRows
 }
