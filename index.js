@@ -27,7 +27,6 @@ const displayUsersListInTable = (usersList) => {
     const usersTableBody = document.getElementById("tbody")
     let tableRows = ''
     for (const userElement of usersList) {
-        if (userElement.id === 1) {
             tableRows += `
                 <tr>
                     <td>${userElement.name}</td>
@@ -40,7 +39,6 @@ const displayUsersListInTable = (usersList) => {
                     <td>${userElement.name}</td>
                 </tr>
             `
-        }
         usersTableBody.innerHTML = tableRows
     }
 }
