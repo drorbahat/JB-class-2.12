@@ -1,11 +1,8 @@
 const requestAllusers = async () => {
     const userIdSelection = document.getElementById("userIdSelector").value
-    console.log(userIdSelection)
     const address = "https://jsonplaceholder.typicode.com/users" + "/" + userIdSelection
-    console.log(address)
 
     displayUsersListInTable(await getUsersFromServer(address))
-
 }
 
 const getUsersFromServer = (address) => {
