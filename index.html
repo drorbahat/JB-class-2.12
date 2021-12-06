@@ -10,34 +10,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="requestAllPhotos()">
     <div class="main-container">
-        <h1>To Do List</h1>
-        <button class="main-button btn-grad" onclick="requestAllusers()">get all todo lists</button>
+        <h1>Photos List</h1>
+        
         <table>
             <thead>
                 <tr>
-                    <th>name</th>
-                    <th>user name</th>
-                    <th>email</th>
-                    <th>phone num</th>
-                    <th>city</th>
-                    <th>street</th>
-                    <th>zip code</th>
-                    <th>company</th>
+                    <th>albumId</th>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>thumbnailUrl</th>
                 </tr>
             </thead>
             <tbody id="tbody">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
             </tbody>
         </table>
     </div>

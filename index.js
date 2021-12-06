@@ -1,44 +1,43 @@
-const requestAllusers = async () => {
-    displayUsersListInTable(await getUsersFromServer())
+const requestAllPhotos = async () => {
+    displayPhotosListInTable(await getPhotosFromServer())
 
 }
 
-const getUsersFromServer = () => {
+const getPhotosFromServer = () => {
     return new Promise((resolve, reject) => {
         const ajax = new XMLHttpRequest()
         ajax.onreadystatechange = () => {
             let state = ajax.readyState
             if (state === 4) {
                 if (ajax.status === 200) {
-                    const usersListFromJson = JSON.parse(ajax.responseText)
-                    resolve(usersListFromJson)
+                    const photosListFromJson = JSON.parse(ajax.responseText)
+                    resolve(photosListFromJson)
                 } else {
                     reject()
                 }
             }
         }
-        ajax.open("GET", "https://jsonplaceholder.typicode.com/users")
+        ajax.open("GET", "https://jsonplaceholder.typicode.com/photos")
         ajax.send()
     })
 
 }
 
-const displayUsersListInTable = (usersList) => {
-    const usersTableBody = document.getElementById("tbody")
+const displayPhotosListInTable = (photosList) => {
+    const photosTableBody = document.getElementById("tbody")
     let tableRows = ''
-    for (const userElement of usersList) {
+    for (const photoElement of photosList) {
+        if (photoElement.id <= 100) {
             tableRows += `
                 <tr>
-                    <td>${userElement.name}</td>
-                    <td>${userElement.username}</td>
-                    <td>${userElement.email}</td>
-                    <td>${userElement.phone}</td>
-                    <td>${userElement.address.city}</td>
-                    <td>${userElement.address.street}</td>
-                    <td>${userElement.address.zipcode}</td>
-                    <td>${userElement.name}</td>
+                    <td>${photoElement.albumId}</td>
+                    <td>${photoElement.id}</td>
+                    <td>${photoElement.title}</td>
+                    <td><img src="${photoElement.thumbnailUrl}" alt="" srcset=""></td>
                 </tr>
             `
-        usersTableBody.innerHTML = tableRows
+        photosTableBody.innerHTML = tableRows
+        }
+
     }
 }
