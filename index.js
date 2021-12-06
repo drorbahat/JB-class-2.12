@@ -1,43 +1,44 @@
-const requestAllPhotos = async () => {
-    displayPhotosListInTable(await getPhotosFromServer())
+const requestAllusers = async () => {
+    displayUsersListInTable(await getUsersFromServer())
 
 }
 
-const getPhotosFromServer = () => {
+const getUsersFromServer = () => {
     return new Promise((resolve, reject) => {
         const ajax = new XMLHttpRequest()
         ajax.onreadystatechange = () => {
             let state = ajax.readyState
             if (state === 4) {
                 if (ajax.status === 200) {
-                    const photosListFromJson = JSON.parse(ajax.responseText)
-                    resolve(photosListFromJson)
+                    const usersListFromJson = JSON.parse(ajax.responseText)
+                    resolve(usersListFromJson)
                 } else {
                     reject()
                 }
             }
         }
-        ajax.open("GET", "https://jsonplaceholder.typicode.com/photos")
+        ajax.open("GET", "https://reqres.in/api/users")
         ajax.send()
     })
 
 }
 
-const displayPhotosListInTable = (photosList) => {
-    const photosTableBody = document.getElementById("tbody")
+const displayUsersListInTable = (usersList) => {
+    usersList = usersList.data
+    const usersTableBody = document.getElementById("tbody")
+    console.log(usersList)
     let tableRows = ''
-    for (const photoElement of photosList) {
-        if (photoElement.id <= 100) {
+    for (const userElement of usersList) {
+        if (userElement.id <= 100) {
             tableRows += `
                 <tr>
-                    <td>${photoElement.albumId}</td>
-                    <td>${photoElement.id}</td>
-                    <td>${photoElement.title}</td>
-                    <td><img src="${photoElement.thumbnailUrl}" alt="" srcset=""></td>
+                    <td>${userElement.first_name}</td>
+                    <td>${userElement.last_name}</td>
+                    <td>${userElement.email}</td>
+                    <td><img src="${userElement.avatar}" alt="" srcset=""></td>
                 </tr>
             `
-        photosTableBody.innerHTML = tableRows
+        usersTableBody.innerHTML = tableRows
         }
-
     }
 }
