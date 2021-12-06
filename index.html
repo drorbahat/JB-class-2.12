@@ -11,21 +11,20 @@
 </head>
 
 <body>
+    <div class="title-container">
+        <h1 id="main-title">Weather</h1>
+    </div>
     <div class="main-container">
-        <h1>Weather</h1>
+        <br>
         <label for="userId">Select city</label>
         <br>
-        <select name="usesId" id="userIdSelector">
+        <select name="usesId" id="userIdSelector" onchange="requestAllusers()">
             <option value="Tel Aviv">Tel Aviv</option>
             <option value="chicago">chicago</option>
             <option value="jerusalem">jerusalem</option>
             <option value="ramat gan">ramat gan</option>
             <option value="New York">New York</option>
-
-
         </select>
-        <br>
-        <button class="main-button btn-grad" onclick="requestAllusers()">Get Info</button>
         <div class="card level-3">
             <div class="info-container" id="info-container">
             </div>

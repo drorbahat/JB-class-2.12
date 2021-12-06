@@ -29,6 +29,28 @@ td {
     border-collapse: collapse;
 }
 
+#main-title{
+margin: 0;
+padding: 10px
+}
+
+#userIdSelector{
+    padding: 0.5em;
+    border-radius: 0.4em;
+    color: rgb(255, 255, 255);
+    background-color: #00000077;
+    box-shadow: 6px 6px 50px -5px rgba(0, 0, 0, 0.767);
+}
+
+.title-container{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    text-align: center;
+    background-color: #00000077;
+    box-shadow: 6px 6px 50px -5px rgba(0, 0, 0, 0.767);
+}
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -36,40 +58,14 @@ td {
     flex-direction: column;
 }
 
-
-.btn-grad {
-    background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)
-}
-
-.btn-grad {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: rgb(0, 0, 0);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.295);
-    border-radius: 10px;
-    border-color: #0094e900;
-    display: block;
-    cursor: pointer;
-}
-
-.btn-grad:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-}
-
-
 .card {
     margin: 1em;
     padding: 1em;
     text-align: center;
-    background-color: white;
-    color: black;
+
+    color: rgb(255, 255, 255);
     border-radius: 0.5em;
-    box-shadow: 6px 6px 50px -5px rgba(0, 0, 0, 0.418);
+
+    background-color: #00000077;
+    box-shadow: 6px 6px 50px -5px rgba(0, 0, 0, 0.767);
 }
