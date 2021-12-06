@@ -38,6 +38,5 @@ const displayPhotosListInTable = (photosList) => {
             `
         photosTableBody.innerHTML = tableRows
         }
-
     }
 }
